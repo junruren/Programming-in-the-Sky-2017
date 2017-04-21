@@ -1,6 +1,4 @@
 
-
-
 package tic_tac_toe;
 
 import java.util.Scanner;
@@ -10,7 +8,7 @@ import java.util.Scanner;
 * A class that implements a simple TicTacToe game
 * @version 2.0
 * @author  Zhimin Lin
-* @since   2017-04-15
+* @since   2017-04-18
 */ 
 
 public class TicTacToe {
@@ -20,7 +18,7 @@ public class TicTacToe {
 	private static final int MAX_NUM_TRY = 2;
 
 	//An Scanner object that reads in user's choice
-	static Scanner input = new Scanner(System.in);
+	private static Scanner input = new Scanner(System.in);
 	
 	private Board board;
 	private Dice dice;
@@ -29,7 +27,7 @@ public class TicTacToe {
 
 
 	//Object of Stats class to maintain statistics
-	static Stats stat = new Stats();  
+	private static Stats stat = new Stats();
 	
 	/*
 	 * Constructor. Initialize the board, the dice and the AI's name
@@ -375,7 +373,6 @@ public class TicTacToe {
 	public static void main(String[] args) {
 		
 		TicTacToe game = new TicTacToe();
-		game.setSymbol(args[0].toCharArray()[0]);
 		
 		System.out.println("Welcome to TicTacToe!");
 		System.out.format("This is %s, the Master of TicTacToe!\n", 
@@ -387,6 +384,10 @@ public class TicTacToe {
 
 		// input from the user, if he wants to clear stats
 		String clearStats=""; 
+		
+		System.out.println("Please Choose your symbol: ");
+		String userChar = input.next();
+		game.setSymbol(userChar.toCharArray()[0]);
 		
 		do {      //play until 'n' is pressed
 			game.getBoard().clearBoard();   //clear the baord
