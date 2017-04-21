@@ -346,21 +346,24 @@ public class TicTacToe {
 		  
 		//Keep the game running unless one player has win
 		int i = 0;
+
 		while (i < 4){
 			if (compTurn()) {
 				done = true;
 				break;
-			}
-			if (humanTurn()){
+			}	
+			if (humanTurn()) {
 				done = true;
 				break;
 			}
 			i++;
 		}
+
+
 		
 		//If the game is not settled in eight moves, the computer
 		//plays the last step.
-		if(!done){
+		if (!done){
 			if (!compTurn()){
 				System.out.println("\n\nA tie!");
 				stat.incrementTies();

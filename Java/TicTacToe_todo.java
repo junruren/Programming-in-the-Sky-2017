@@ -337,7 +337,7 @@ public class TicTacToe {
 	 */
 	public void compFirst(){
 		boolean done = false;
-		  
+
 		//Keep the game running unless one player has win
 		int i;
 		//TODO: Topic 9, write a while loop with the following two if statement as loop body. Range of i is 0 to 4
@@ -350,8 +350,8 @@ public class TicTacToe {
 				done = true;
 				break;
 			}
-
 		
+
 		//If the game is not settled in eight moves, the computer
 		//plays the last step.
 		if(!done){
