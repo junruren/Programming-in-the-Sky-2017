@@ -338,18 +338,10 @@ public class TicTacToe {
 	public void compFirst(){
 		boolean done = false;
 		  
-		//Keep the game running unless one player has win
-		for (int i = 0; i < 4; i++) {	
-			if (compTurn()) {
-				done = true;
-				break;
-			}
-			if (humanTurn()){
-				done = true;
-				break;
-			}
-		}
+		//TODO: Topic 9, modify for-loop in humanFirst() into 
+		//while-loop that works for compFirst()
 		
+
 		//If the game is not settled in eight moves, the computer
 		//plays the last step.
 		if(!done){
