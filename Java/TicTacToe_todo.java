@@ -374,10 +374,10 @@ public class TicTacToe {
 		
 		
 		// input from the user, if he wants to play another game
-		String playAgain=""; 
+		char playAgain=' ';
 
 		// input from the user, if he wants to clear stats
-		String clearStats=""; 
+		char clearStats=' ';
 		
 		System.out.println("Please Choose your symbol: ");
 		String userChar = input.next();
@@ -408,17 +408,18 @@ public class TicTacToe {
 		
 			System.out.println("\n\nPlay again?");
 		
-			playAgain = input.next();
+			playAgain = input.next().charAt(0);
 			
-			if (playAgain.charAt(0) != 'n'){  
+			if (){  //TODO: Topic 5, add a logical condition to check if playAgain is 'y' or not
 				System.out.println("\nClear statistics?");
-				clearStats = input.next();
-				if (clearStats.charAt(0) == 'y'){
+				clearStats = input.next().charAt(0);
+				if (){  //TODO: Topic 5, add a logical condition to check if clearStats is 'y' or not
 					stat.reset();
 				}
 			}
 
-		} while(playAgain.charAt(0)!='n'); //done with the outer loop
+		} while(); //done with the outer loop
+		//TODO: Topic 5, add a logical condition to check if playAgain is 'n' or not
 	    
 	    System.out.println("\nBye, see you later!");
 	}
