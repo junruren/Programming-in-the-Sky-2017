@@ -18,7 +18,7 @@ public class Board {
      * Constructor. Initialize the array representing the board
      */
     public Board(){
-	    board = new char[NUM_ROW][NUM_COL];
+    	board = new char[NUM_ROW][NUM_COL];
     }
   
     /**
@@ -57,7 +57,7 @@ public class Board {
      */
     public void clearBoard(){
     	int row, col;
-    	//TODO: write a nested for loop to set all elements in board to ' '
+    	//TODO: Topic 7 & 9, write a nested for loop to set all elements in board to ' '
     }
     
 	/**

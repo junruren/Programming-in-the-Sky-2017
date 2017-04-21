@@ -44,7 +44,7 @@ public class TicTacToe {
 	 */
 	public void setSymbol(char symbol){
 		humanSymbol = symbol;
-		//TODO: write a if-else statement to set symbol for user and computer
+		//TODO: Topic 8, write a if-else statement to set symbol for user and computer
 		//If user picks 'X' then computer should pick 'O', otherwise computer
 		//picks 'X'
 	}
@@ -148,9 +148,9 @@ public class TicTacToe {
 	 */
 	public int whoStarts(){
 		int choice = -1;
-		int toss = //TODO: call toss() method in Dice to get a random number
+		int toss = //TODO: Topic 11, method call. Call toss() method in Dice to get a random number
 
-		//TODO: return 0 or 1 base on the value of toss
+		//TODO: Topic 8, If-Else. return 0 or 1 base on the value of toss
 
 		return choice;
 	}
@@ -165,16 +165,16 @@ public class TicTacToe {
 	public boolean humanTurn(){
 		
 		System.out.print("\n\nEnter your move: (row column): " );
-		int row = input.nextInt();  //Read the input for row number
-		int col = input.nextInt();  //Read the input for column number
-		  
+		//TODO: Topic 3, define two int variable named row and col and initialize to 0
+		//TODO: Topic 10, read user's input for row and column into row and col
+
 		//Keep prompting for another choice until the chosen slot is empty
 		while(!board.slotIsEmpty(row, col)){  
 			System.out.println("Sorry that cell "
 	  		                   + "is already occupied. Please try again.");
 			  
 			System.out.print("\n\nEnter your move: (row column): " );
-			//TODO: read user's input for row and column
+			//TODO: Topic 10, read user's input for row and column
 		}
 		  
 		board.setSlot(row, col, humanSymbol);  //Put the symbol on the board
@@ -200,7 +200,7 @@ public class TicTacToe {
 	 * 5. If not a win yet, returns false
 	 */
 	public boolean compTurn() {
-		  
+
 		int row = 0, col = 0;
 		int rowTemp = 0, colTemp = 0;
 		boolean moved = false;
@@ -276,7 +276,7 @@ public class TicTacToe {
 		board.setSlot(row, col, compSymbol);  //Put the symbol on the board
 		    
 		System.out.println("\n\n");
-		//TODO: print a string using concatenation to show the move of the computer
+		//TODO: Topic 6, print a string using concatenation to show the move of the computer
 		  
 		board.printBoard();
 		    
@@ -368,7 +368,7 @@ public class TicTacToe {
 		
 		TicTacToe game = new TicTacToe();
 		
-		//TODO: print a welcome message to player
+		//TODO: Topic 6, print a welcome message to player
 		System.out.format("This is %s, the Master of TicTacToe!\n", 
 				game.getAIName());
 		
