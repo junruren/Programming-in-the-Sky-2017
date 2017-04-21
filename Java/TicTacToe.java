@@ -345,7 +345,8 @@ public class TicTacToe {
 		boolean done = false;
 		  
 		//Keep the game running unless one player has win
-		for (int i = 0; i < 4; i++) {	
+		int i = 0;
+		while (i < 4){
 			if (compTurn()) {
 				done = true;
 				break;
@@ -354,6 +355,7 @@ public class TicTacToe {
 				done = true;
 				break;
 			}
+			i++;
 		}
 		
 		//If the game is not settled in eight moves, the computer
@@ -380,10 +382,10 @@ public class TicTacToe {
 		
 		
 		// input from the user, if he wants to play another game
-		String playAgain=""; 
+		char playAgain=' ';
 
 		// input from the user, if he wants to clear stats
-		String clearStats=""; 
+		char clearStats=' ';
 		
 		System.out.println("Please Choose your symbol: ");
 		String userChar = input.next();
@@ -414,17 +416,17 @@ public class TicTacToe {
 		
 			System.out.println("\n\nPlay again?");
 		
-			playAgain = input.next();
+			playAgain = input.next().charAt(0);
 			
-			if (playAgain.charAt(0) != 'n'){  
+			if (playAgain != 'n'){
 				System.out.println("\nClear statistics?");
-				clearStats = input.next();
-				if (clearStats.charAt(0) == 'y'){
+				clearStats = input.next().charAt(0);
+				if (clearStats == 'y'){
 					stat.reset();
 				}
 			}
 
-		} while(playAgain.charAt(0)!='n'); //done with the outer loop
+		} while(playAgain !='n'); //done with the outer loop
 	    
 	    System.out.println("\nBye, see you later!");
 	}

@@ -339,16 +339,18 @@ public class TicTacToe {
 		boolean done = false;
 		  
 		//Keep the game running unless one player has win
-		for (int i = 0; i < 4; i++) {	
+		int i;
+		//TODO: Topic 9, write a while loop with the following two if statement as loop body. Range of i is 0 to 4
+
 			if (compTurn()) {
 				done = true;
 				break;
 			}
-			if (humanTurn()){
+			if (humanTurn()) {
 				done = true;
 				break;
 			}
-		}
+
 		
 		//If the game is not settled in eight moves, the computer
 		//plays the last step.
