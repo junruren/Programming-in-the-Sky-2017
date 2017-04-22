@@ -1,3 +1,4 @@
+
 package tic_tac_toe;
 
 import java.util.Scanner;
@@ -10,7 +11,7 @@ import java.util.Scanner;
  * @since   2017-04-18
  */
 
-public class TicTacToe {
+public class TicTacToe_Sample {
 
     private static final int NUM_COL = 3;
     private static final int NUM_ROW = 3;
@@ -19,8 +20,8 @@ public class TicTacToe {
     //An Scanner object that reads in user's choice
     private static Scanner input = new Scanner(System.in);
 
-    private Board board;
-    private Dice dice;
+    private Board_Sample board;
+    private Dice_Sample dice;
     private char humanSymbol, compSymbol;
     private String AIName;
 
@@ -31,9 +32,9 @@ public class TicTacToe {
     /*
      * Constructor. Initialize the board, the dice and the AI's name
      */
-    public TicTacToe(){
-        board = new Board();
-        dice = new Dice();
+    public TicTacToe_Sample(){
+        board = new Board_Sample();
+        dice = new Dice_Sample();
         AIName = "Thomas";
     }
 
@@ -44,9 +45,12 @@ public class TicTacToe {
      */
     public void setSymbol(char symbol){
         humanSymbol = symbol;
-        //TODO: Topic 8, write a if-else statement to set symbol for user and computer
-        //If user picks 'X' then computer should pick 'O', otherwise computer
-        //picks 'X'
+        if (humanSymbol == 'X'){
+            compSymbol = 'O';
+        }
+        else{
+            compSymbol = 'X';
+        }
     }
 
     /**
@@ -72,7 +76,7 @@ public class TicTacToe {
      *
      * @return the board for the game
      */
-    public Board getBoard(){
+    public Board_Sample getBoard(){
         return board;
     }
 
@@ -148,10 +152,12 @@ public class TicTacToe {
      */
     public int whoStarts(){
         int choice = -1;
-        int toss = //TODO: Topic 11, method call. Call toss() method in Dice to get a random number
-
-        //TODO: Topic 8, If-Else. return 0 or 1 base on the value of toss
-
+        if (dice.toss() % 2 == 0){
+            choice = 0;
+        }
+        else{
+            choice = 1;
+        }
         return choice;
     }
 
@@ -165,8 +171,8 @@ public class TicTacToe {
     public boolean humanTurn(){
 
         System.out.print("\n\nEnter your move: (row column): " );
-        //TODO: Topic 3, define two int variable named row and col and initialize to 0
-        //TODO: Topic 10, read user's input for row and column into row and col
+        int row = input.nextInt();  //Read the input for row number
+        int col = input.nextInt();  //Read the input for column number
 
         //Keep prompting for another choice until the chosen slot is empty
         while(!board.slotIsEmpty(row, col)){
@@ -174,7 +180,8 @@ public class TicTacToe {
                     + "is already occupied. Please try again.");
 
             System.out.print("\n\nEnter your move: (row column): " );
-            //TODO: Topic 10, read user's input for row and column
+            row = input.nextInt();
+            col = input.nextInt();
         }
 
         board.setSlot(row, col, humanSymbol);  //Put the symbol on the board
@@ -275,8 +282,7 @@ public class TicTacToe {
 
         board.setSlot(row, col, compSymbol);  //Put the symbol on the board
 
-        System.out.println("\n\n");
-        //TODO: Topic 6, print a string using concatenation to show the move of the computer
+        System.out.println("\n\nMy Move is: "+row+" "+ col);
 
         board.printBoard();
 
@@ -339,22 +345,25 @@ public class TicTacToe {
         boolean done = false;
 
         //Keep the game running unless one player has win
-        int i;
-        //TODO: Topic 9, write a while loop with the following two if statement as loop body. Range of i is 0 to 4
+        int i = 0;
 
-        if (compTurn()) {
-            done = true;
-            break;
+        while (i < 4){
+            if (compTurn()) {
+                done = true;
+                break;
+            }
+            if (humanTurn()) {
+                done = true;
+                break;
+            }
+            i++;
         }
-        if (humanTurn()) {
-            done = true;
-            break;
-        }
+
 
 
         //If the game is not settled in eight moves, the computer
         //plays the last step.
-        if(!done){
+        if (!done){
             if (!compTurn()){
                 System.out.println("\n\nA tie!");
                 stat.incrementTies();
@@ -368,9 +377,9 @@ public class TicTacToe {
      */
     public static void main(String[] args) {
 
-        TicTacToe game = new TicTacToe();
+        TicTacToe_Sample game = new TicTacToe_Sample();
 
-        //TODO: Topic 6, print a welcome message to player
+        System.out.println("Welcome to TicTacToe!");
         System.out.format("This is %s, the Master of TicTacToe!\n",
                 game.getAIName());
 
@@ -412,16 +421,15 @@ public class TicTacToe {
 
             playAgain = input.next().charAt(0);
 
-            if (){  //TODO: Topic 5, add a logical condition to check if playAgain is 'y' or not
+            if (playAgain != 'n'){
                 System.out.println("\nClear statistics?");
                 clearStats = input.next().charAt(0);
-                if (){  //TODO: Topic 5, add a logical condition to check if clearStats is 'y' or not
+                if (clearStats == 'y'){
                     stat.reset();
                 }
             }
 
-        } while(); //done with the outer loop
-        //TODO: Topic 5, add a logical condition to check if playAgain is 'n' or not
+        } while(playAgain !='n'); //done with the outer loop
 
         System.out.println("\nBye, see you later!");
     }

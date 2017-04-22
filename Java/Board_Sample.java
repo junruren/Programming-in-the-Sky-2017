@@ -1,14 +1,15 @@
 package tic_tac_toe;
 
+
 /**
  * Represents a board with 9 slots for the TicTacToe game
  *
  * @author Zhimin Lin
  * @version 1.0
- * @since 2017-04-18
+ * @since 2017-04-14
  *
  */
-public class Board {
+public class Board_Sample {
     private char[][] board;
     private static final int NUM_ROW = 3;
     private static final int NUM_COL = 3;
@@ -17,7 +18,7 @@ public class Board {
     /*
      * Constructor. Initialize the array representing the board
      */
-    public Board(){
+    public Board_Sample(){
         board = new char[NUM_ROW][NUM_COL];
     }
 
@@ -57,7 +58,12 @@ public class Board {
      */
     public void clearBoard(){
         int row, col;
-        //TODO: Topic 7 & 9, write a nested for loop to set all elements in board to ' '
+        for (row = 0; row < NUM_ROW; row++){
+            for (col = 0; col < NUM_COL; col++){
+                board[row][col] = ' ';
+
+            }
+        }
     }
 
     /**
